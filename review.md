@@ -19,8 +19,8 @@ The package includes all the following forms of documentation:
   You have a very nice README file that explains some of the core rationale for the package, how to install, etc. I did not know this package had a vignette until the end of the README file, so consider moving that up to the beginning if users want to dive right into that to learn about the package. The README vignette link also points to an HTML file on GitHub, which is not a readable format. After I installed the package and I ran the following in my R console, it indicated no vignettes were found. I honestly don't know how to rectify, but this may not be a problem once it's hosted on ROpenSci.  Regardless, I could only access the vignette by forking the source repo and inspecting the .Rmd file.
 
   ```
-vignette(package = 'rfema')
-#> no vignettes found
+  vignette(package = 'rfema')
+  #> no vignettes found
   ```
   
 - [x] **Function Documentation:** for all exported functions
@@ -34,15 +34,15 @@ vignette(package = 'rfema')
   Many of the examples in the help files return a lot of printed text in the console that is problematic for two reasons.  First, it complicates interpretation when first time users are trying to understand function output.  Second, this will not render well on the ROpenSci reference pages when the package is finally onboarded.  Consider how you can print the example output in a more user-friendly style.  For example, in the `fema_data_sets` example, you just call the function as is:
   
   ```
-fema_data_sets()
+  fema_data_sets()
   ```
   
   Something like this would produce a cleaner output for the help files. 
   
   ```
-dat <- fema_data_sets()
-dim(dat)
-head(dat[, c(1:3)])
+  dat <- fema_data_sets()
+  dim(dat)
+  head(dat[, c(1:3)])
   ```
   
   Better yet, consider converting all output as `tibble` objects since there is already a nice print method that handles these issues.  I've made a more detailed comment about that below. 
